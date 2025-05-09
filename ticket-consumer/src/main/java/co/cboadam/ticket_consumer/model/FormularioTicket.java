@@ -12,7 +12,7 @@ public class FormularioTicket implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    private String id; // ID único que usarás para pagos y búsqueda
+    private String id;
 
     private String nombre;
     private String correo;
@@ -20,7 +20,6 @@ public class FormularioTicket implements Serializable {
     private int cantidad;
     private boolean pagado;
 
-    // Si quieres asegurarte de no tener duplicados:
     @Column(unique = true)
     private String asiento;
 

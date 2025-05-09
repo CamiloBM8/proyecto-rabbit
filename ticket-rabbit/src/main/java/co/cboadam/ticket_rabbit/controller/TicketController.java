@@ -27,20 +27,19 @@ public class TicketController {
 
     @GetMapping("/pagar")
     public String mostrarPago(@RequestParam String id, Model model) {
-        // ⚠️ Aquí asumimos que tienes un TicketService o puedes simularlo con una API Rest o mock
-        FormularioTicket ticket = publisher.obtenerTicketPorId(id); // crea este método
+        FormularioTicket ticket = publisher.obtenerTicketPorId(id);
 
         if (ticket == null) {
-            return "error"; // página de error simple
+            return "error";
         }
 
         model.addAttribute("ticket", ticket);
-        return "pago"; // pago.html
+        return "pago";
     }
 
     @PostMapping("/procesar-pago")
     public String procesarPago(@RequestParam String id) {
-        publisher.enviarPago(id); // método que envía a la cola `cola-pagos`
+        publisher.enviarPago(id);
         return "redirect:/pago-exitoso?id=" + id;
     }
 

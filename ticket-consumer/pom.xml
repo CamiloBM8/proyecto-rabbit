@@ -6,7 +6,7 @@
 		<groupId>co.cboadam</groupId>
 		<artifactId>proyecto-rabbit</artifactId>
 		<version>1.0-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath> <!-- Ajusta según la estructura real -->
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>co.cboadam</groupId>
 	<artifactId>ticket-consumer</artifactId>

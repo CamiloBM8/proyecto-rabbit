@@ -29,19 +29,15 @@ public class TicketListener {
     public void procesarFormulario(FormularioTicket ticket) {
         System.out.println("🎫 Recibida solicitud de " + ticket.getNombre() + " para zona " + ticket.getZona());
 
-        // Generar ID único y asignar asiento
         ticket.setId(UUID.randomUUID().toString());
         String asientoAsignado = "Zona-" + ticket.getZona() + "-A" + (int)(Math.random() * 100 + 1);
         ticket.setAsiento(asientoAsignado);
         ticket.setPagado(false);
 
-        // Guardar en base de datos H2
         ticketRepository.save(ticket);
 
-        // Generar link de pago
         String linkPago = "http://localhost:8080/pagar?id=" + ticket.getId();
 
-        // Enviar correo de notificación
         notificacionService.enviarCorreo(
                 ticket.getCorreo(),
                 "Tu entrada para " + ticket.getZona(),

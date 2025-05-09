@@ -25,7 +25,6 @@ public class RabbitConfig {
 
     @Bean
     public Binding bindingPago() {
-        // Si no usas routingKey explícita, usas el mismo nombre de la cola como default
         return BindingBuilder.bind(pagoQueue()).to(pagoExchange()).with(PAGO_QUEUE);
     }
 

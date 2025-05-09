@@ -5,12 +5,11 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Spring Boot parent -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.4.5</version>
-        <relativePath/> <!-- importante para no buscarlo en el proyecto local -->
+        <relativePath/>
     </parent>
 
     <groupId>co.cboadam</groupId>
@@ -47,7 +46,7 @@
     </dependencies>
 
     <properties>
-        <java.version>21</java.version> <!-- Puedes cambiar esto si estás usando una versión compatible más nueva -->
+        <java.version>21</java.version>
     </properties>
 
 </project>

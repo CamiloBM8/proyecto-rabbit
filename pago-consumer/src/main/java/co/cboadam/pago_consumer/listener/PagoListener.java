@@ -15,14 +15,12 @@ public class PagoListener {
         System.out.println("💸 Procesando pago para el ticket ID: " + ticketId);
 
         try {
-            // Obtener el ticket desde el microservicio ticket-consumer
             String url = "http://localhost:8081/api/ticket/" + ticketId;
             FormularioTicket ticket = restTemplate.getForObject(url, FormularioTicket.class);
 
             if (ticket != null) {
-                ticket.setPagado(true); // Simular que se pagó
+                ticket.setPagado(true);
 
-                // Enviar la actualización al microservicio original (opcional)
                 restTemplate.put("http://localhost:8081/api/ticket/" + ticketId, ticket);
 
                 System.out.println("Ticket pagado: " + ticket.getNombre());
